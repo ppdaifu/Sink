@@ -1,45 +1,7 @@
 <template>
-  <NuxtLayout name="default">
-    <main class="flex flex-col items-center justify-center flex-grow py-10">
-      <div class="text-white dark:text-black">
-        <p>链接打不开，请<a :href="supportLink" target="_blank" class="underline">联系客服</a>。</p>
-        <p>Link unavailable, please <a :href="supportLink" target="_blank" class="underline">contact us</a>.</p>
-      </div>
-    </main>
-  </NuxtLayout>
+  <main class="flex flex-col justify-center">
+  <p>链接打不开，请联系客服。</p>
+  </main>
 </template>
 
-<script>
-export default {
-  head() {
-    return {
-      title: 'daifu link'
-    }
-  },
-  data() {
-    return {
-      currentHost: window.location.host
-    }
-  },
-  computed: {
-    supportLink() {
-      return `https://kefu.${this.currentHost}`
-    }
-  }
-}
-</script>
-
-<style scoped>
-.text-center {
-  text-align: center;
-}
-.text-white {
-  color: white;
-}
-.dark .text-black {
-  color: black;
-}
-.underline {
-  text-decoration: underline;
-}
 </style>
