@@ -3,14 +3,3 @@
     <p>链接打不开，请联系客服。</p>
   </main>
 </template>
-
-<style>
-.text-center {
-  text-align: center;
-}
-.text-white {
-  color: white;
-}
-.dark .text-black {
-  color: black;
-}</style>
