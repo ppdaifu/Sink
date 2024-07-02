@@ -7,7 +7,7 @@
         target="_blank"
         title="daifu"
       >
-        &copy; {{ new Date().getFullYear() }} All rights reserved
+        &copy; 2020-{{ new Date().getFullYear() }} All rights reserved
       </a>
     </div>
   </section>
