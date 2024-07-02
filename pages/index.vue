@@ -10,11 +10,7 @@
         <p>Link unavailable, please <a :href="supportLink" target="_blank" class="underline">contact us</a>.</p>
       </div>
     </main>
-    <!-- 页脚 -->
-    <footer class="bg-gray-800 text-white py-4 text-center">
-      <!-- 页脚内容 -->
-      <p>页脚内容</p>
-    </footer>
+
   </div>
 </template>
 
