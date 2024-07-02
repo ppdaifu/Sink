@@ -79,12 +79,3 @@ const showMenu = ref(false)
             v-show="!showMenu"
             class="w-6 h-6"
           />
-          <X
-            v-show="showMenu"
-            class="w-6 h-6"
-          />
-        </div>
-      </div>
-    </nav>
-  </section>
-</template>
