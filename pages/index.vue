@@ -39,7 +39,7 @@ export default {
   color: white;
 }
 .dark .text-white {
-  color: white; /* Fixed color styling */
+  color: white; /* Ensure this is only applied in dark mode */
 }
 .dark .text-black {
   color: black;
