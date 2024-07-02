@@ -1,11 +1,19 @@
 <template>
   <div class="flex flex-col min-h-screen">
-    <main class="flex flex-col justify-center items-center flex-grow overflow-hidden">
+    <main class="flex flex-col justify-center items-center flex-grow overflow-hidden text-center">
+      <!-- 图片放置在提示语上方 -->
+      <img src="/assets/images/404.svg" alt="404 Image" class="w-1/2 md:w-1/3 mb-4" />
+      
       <!-- 显示有超链接的提示语 -->
-      <div class="text-center text-link">
+      <div class="text-link">
         <p>链接打不开，请<a :href="supportLink" target="_blank" class="underline">联系客服</a>。</p>
         <p>Link unavailable, please <a :href="supportLink" target="_blank" class="underline">contact us</a>.</p>
       </div>
+
+      <!-- 图片放置在提示语下方 (如果需要的话) -->
+      <!--
+      <img src="/assets/images/404.svg" alt="404 Image" class="w-1/2 md:w-1/3 mt-4" />
+      -->
     </main>
     <footer class="bg-gray-800 text-white py-4 text-center">
       <!-- 页脚内容 -->
@@ -37,9 +45,6 @@ export default {
 </script>
 
 <style scoped>
-.text-center {
-  text-align: center;
-}
 .text-link {
   color: var(--text-color); /* Use a variable for text color */
 }
