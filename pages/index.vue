@@ -6,7 +6,7 @@
       <main class="flex flex-col items-center justify-center flex-grow py-10">
         <div class="text-white dark:text-black">
           <p>链接打不开，请联系客服。</p>
-          <p>Link unavailable, contact support.</p>
+          <p>Link unavailable, contact us.</p>
         </div>
       </main>
       <footer class="w-full bg-gray-800 text-white p-4">
