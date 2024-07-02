@@ -10,17 +10,11 @@
         <p>Link unavailable, please <a :href="supportLink" target="_blank" class="underline">contact us</a>.</p>
       </div>
     </main>
-
   </div>
 </template>
 
 <script>
 export default {
-  head() {
-    return {
-      title: 'daifu link'
-    }
-  },
   data() {
     return {
       supportLink: '' // Initialize as an empty string
@@ -61,10 +55,8 @@ body {
 .dark body {
   --text-color: white; /* Text color for dark mode */
 }
-footer {
-  background-color: #333; /* Dark background for footer */
-  color: white; /* White text color for footer */
-  padding: 1rem; /* Padding for footer */
-  text-align: center; /* Center align footer text */
+html, body {
+  height: 100%; /* Ensure the body takes the full height */
+  margin: 0; /* Remove default margin */
 }
 </style>
