@@ -1,23 +1,18 @@
 <template>
-  <main class="flex flex-col justify-center items-center min-h-screen">
-    <p class="text-center text-white">链接打不开，请联系客服。</p>
-    <p class="text-center text-white">Link unavailable, contact us.</p>
+  <main class="flex flex-col justify-center items-center min-h-screen overflow-hidden">
+    <!-- 显示有超链接的提示语 -->
+    <div class="text-white dark:text-black">
+      <p class="text-center">链接打不开，请<a :href="supportLink" target="_blank" class="underline">联系客服</a>。</p>
+      <p class="text-center">Link unavailable, please <a :href="supportLink" target="_blank" class="underline">contact us</a>.</p>
+    </div>
   </main>
-  <NuxtLayout name="default">
-    <main class="flex flex-col items-center justify-center flex-grow py-10">
-      <div class="text-white dark:text-black">
-        <p>链接打不开，请<a :href="supportLink" target="_blank" class="underline">联系客服</a>。</p>
-        <p>Link unavailable, please <a :href="supportLink" target="_blank" class="underline">contact us</a>.</p>
-      </div>
-    </main>
-  </NuxtLayout>
 </template>
 
 <script>
 export default {
   head() {
     return {
-      title: 'daifu'
+      title: 'daifu link'
     }
   },
   data() {
@@ -53,5 +48,8 @@ export default {
 }
 .underline {
   text-decoration: underline;
+}
+.overflow-hidden {
+  overflow: hidden; /* Disable scrolling */
 }
 </style>
