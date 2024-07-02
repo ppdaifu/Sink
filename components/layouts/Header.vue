@@ -24,7 +24,7 @@ const showMenu = ref(false)
                 src="/sink.png"
                 alt="Sink"
                 class="w-full h-full rounded-full"
-              >
+              />
             </span>
             <span class="mx-2">Sink</span>
           </a>
@@ -50,7 +50,7 @@ const showMenu = ref(false)
                   src="/sink.png"
                   alt="Sink"
                   class="w-full h-full rounded-full"
-                >
+                />
               </span>
               <span class="mx-2">Sink</span>
             </a>
@@ -79,3 +79,12 @@ const showMenu = ref(false)
             v-show="!showMenu"
             class="w-6 h-6"
           />
+          <X
+            v-show="showMenu"
+            class="w-6 h-6"
+          />
+        </div>
+      </div>
+    </nav>
+  </section>
+</template>
