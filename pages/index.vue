@@ -1,7 +1,16 @@
 <template>
   <main class="flex flex-col justify-center">
-  <p>链接打不开，请联系客服。</p>
+    <p>链接打不开，请联系客服。</p>
   </main>
 </template>
 
-</style>
+<style>
+.text-center {
+  text-align: center;
+}
+.text-white {
+  color: white;
+}
+.dark .text-black {
+  color: black;
+}</style>
