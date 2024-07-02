@@ -1,18 +1,24 @@
 <template>
-  <main class="flex flex-col justify-center items-center min-h-screen overflow-hidden">
-    <!-- 显示有超链接的提示语 -->
-    <div class="text-center text-link">
-      <p>链接打不开，请<a :href="supportLink" target="_blank" class="underline">联系客服</a>。</p>
-      <p>Link unavailable, please <a :href="supportLink" target="_blank" class="underline">contact us</a>.</p>
-    </div>
-  </main>
+  <div class="flex flex-col min-h-screen">
+    <main class="flex flex-col justify-center items-center flex-grow overflow-hidden">
+      <!-- 显示有超链接的提示语 -->
+      <div class="text-center text-link">
+        <p>链接打不开，请<a :href="supportLink" target="_blank" class="underline">联系客服</a>。</p>
+        <p>Link unavailable, please <a :href="supportLink" target="_blank" class="underline">contact us</a>.</p>
+      </div>
+    </main>
+    <footer class="bg-gray-800 text-white py-4 text-center">
+      <!-- 页脚内容 -->
+      <p>页脚内容</p>
+    </footer>
+  </div>
 </template>
 
 <script>
 export default {
   head() {
     return {
-      title: 'link'
+      title: 'daifu link'
     }
   },
   data() {
@@ -57,5 +63,11 @@ body {
 }
 .dark body {
   --text-color: white; /* Text color for dark mode */
+}
+footer {
+  background-color: #333; /* Dark background for footer */
+  color: white; /* White text color for footer */
+  padding: 1rem; /* Padding for footer */
+  text-align: center; /* Center align footer text */
 }
 </style>
