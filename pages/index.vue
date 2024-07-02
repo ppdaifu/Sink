@@ -9,12 +9,8 @@
         <p>链接打不开，请<a :href="supportLink" target="_blank" class="underline">联系客服</a>。</p>
         <p>Link unavailable, please <a :href="supportLink" target="_blank" class="underline">contact us</a>.</p>
       </div>
-
-      <!-- 图片放置在提示语下方 (如果需要的话) -->
-      <!--
-      <img src="/assets/images/404.svg" alt="404 Image" class="w-1/2 md:w-1/3 mt-4" />
-      -->
     </main>
+    <!-- 页脚 -->
     <footer class="bg-gray-800 text-white py-4 text-center">
       <!-- 页脚内容 -->
       <p>页脚内容</p>
