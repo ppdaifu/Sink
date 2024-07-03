@@ -1,9 +1,12 @@
 <template>
-  <div class="container">
-    <main class="content">
-      <img src="/assets/images/404.svg" alt="404 Image" class="image" />
-      <div class="text-link">
-        <p>链接无效，请<a :href="supportLink" target="_blank" class="underline">联系客服</a>。</p>
+  <div class="min-h-screen flex items-center justify-center">
+    <main>
+      <!-- 图片放置在提示语上方 -->
+      <img src="/assets/images/404.svg" alt="404 Image" class="w-1/2 md:w-1/3 mb-4 mx-auto" />
+      
+      <!-- 显示有超链接的提示语 -->
+      <div class="text-link text-center">
+        <p>链接無效，请<a :href="supportLink" target="_blank" class="underline">联系客服</a>。</p>
         <p>Link unavailable, please <a :href="supportLink" target="_blank" class="underline">contact us</a>.</p>
       </div>
     </main>
@@ -27,43 +30,19 @@ export default {
 </script>
 
 <style scoped>
-.container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  width: 100vw;
-  overflow: auto;
-}
-
-.content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.image {
-  width: 50%;
-}
-
 .text-link {
   color: var(--text-color);
 }
 .dark .text-link {
-  color: white; 
+  color: white;
 }
 .light .text-link {
-  color: black; 
+  color: black;
 }
-
 body {
   --text-color: black;
 }
 .dark body {
-  --text-color: white; 
-}
-
-.underline {
-  text-decoration: underline;
+  --text-color: white;
 }
 </style>
