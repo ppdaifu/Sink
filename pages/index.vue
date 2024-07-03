@@ -6,7 +6,7 @@
       
       <!-- 显示有超链接的提示语 -->
       <div class="text-link">
-        <p>链接打不开，请<a :href="supportLink" target="_blank" class="underline">联系客服</a>。</p>
+        <p>链接無效，请<a :href="supportLink" target="_blank" class="underline">联系客服</a>。</p>
         <p>Link unavailable, please <a :href="supportLink" target="_blank" class="underline">contact us</a>.</p>
       </div>
     </main>
