@@ -1,31 +1,58 @@
 <template>
-  <div class="container">
-    <p class="text-link">链接无效</p>
+  <div class="flex flex-col min-h-screen">
+    <main class="flex flex-col justify-center items-center flex-grow overflow-hidden text-center">
+      <img src="/assets/images/404.svg" alt="404 Image" class="w-1/2 md:w-1/3 mb-4" />
+      
+      <div class="text-link">
+        <p>链接无效，请<a :href="supportLink" target="_blank" class="underline">联系客服</a>。</p>
+        <p>Link unavailable, please <a :href="supportLink" target="_blank" class="underline">contact us</a>.</p>
+      </div>
+    </main>
   </div>
 </template>
 
 <script>
 export default {
+  data() {
+    return {
+      supportLink: '' // Initialize as an empty string
+    }
+  },
+  mounted() {
+    // Set supportLink when component is mounted
+    const domainParts = window.location.host.split('.');
+    domainParts.shift(); // Remove the first part
+    const mainDomain = domainParts.join('.');
+    this.supportLink = `https://kefu.${mainDomain}`;
+  }
 }
 </script>
 
 <style scoped>
-.container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh; /* Full viewport height */
-  margin: 0; /* No margin */
-}
-
 .text-link {
-  color: black; /* Default text color */
+  color: var(--text-color); /* Use a variable for text color */
 }
-
 .dark .text-link {
-  color: white; /* Text color for dark mode */
+  color: white; /* Ensure that text is white in dark mode */
 }
-
+.light .text-link {
+  color: black; /* Ensure that text is black in light mode */
+}
+.min-h-screen {
+  min-height: 100vh; 
+}
+.underline {
+  text-decoration: underline;
+}
+.overflow-hidden {
+  overflow: hidden; /* Disable scrolling */
+}
+body {
+  --text-color: black; /* Default text color */
+}
+.dark body {
+  --text-color: white; /* Text color for dark mode */
+}
 html, body {
   height: 100%; /* Ensure the body takes the full height */
   margin: 0; /* Remove default margin */
