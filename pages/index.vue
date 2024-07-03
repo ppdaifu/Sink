@@ -2,11 +2,11 @@
   <div class="flex flex-col min-h-screen justify-center items-center">
     <main class="flex flex-col justify-center items-center flex-grow text-center p-4">
       <!-- 图片放置在提示语上方 -->
-      <img src="/assets/images/404.svg" alt="404 Image" class="w-1/3 mb-4" />
+      <img src="/assets/images/404.svg" alt="404 Image" class="mb-4" />
       
       <!-- 显示有超链接的提示语 -->
       <div class="text-link">
-        <p>链接無效，请<a :href="supportLink" target="_blank" class="underline">联系客服</a>。</p>
+        <p>链接无效，请<a :href="supportLink" target="_blank" class="underline">联系客服</a>。</p>
         <p>Link unavailable, please <a :href="supportLink" target="_blank" class="underline">contact us</a>.</p>
       </div>
     </main>
