@@ -1,8 +1,8 @@
 <template>
   <div class="flex flex-col min-h-screen justify-center items-center">
-    <main class="flex flex-col justify-center items-center flex-grow text-center">
+    <main class="flex flex-col justify-center items-center flex-grow text-center p-4">
       <!-- 图片放置在提示语上方 -->
-      <img src="/assets/images/404.svg" alt="404 Image" class="w-1/2 md:w-1/3 mb-4" />
+      <img src="/assets/images/404.svg" alt="404 Image" class="w-1/3 mb-4" />
       
       <!-- 显示有超链接的提示语 -->
       <div class="text-link">
@@ -55,5 +55,8 @@ body {
 html, body {
   height: 100%; /* Ensure the body takes the full height */
   margin: 0; /* Remove default margin */
+}
+p {
+  margin: 0; /* Remove default margin from paragraphs */
 }
 </style>
