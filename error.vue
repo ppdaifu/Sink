@@ -65,6 +65,7 @@ onMounted(() => {
 
 .message {
   margin-bottom: 40px;
+  text-align: center;
 }
 
 .title {
@@ -80,6 +81,13 @@ onMounted(() => {
   color: var(--text-color);
 }
 
+.accordion-item {
+  margin-bottom: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
 .accordion {
   background-color: var(--accordion-bg);
   border: none;
@@ -93,8 +101,6 @@ onMounted(() => {
   color: var(--text-color);
   transition: background-color 0.3s ease;
   position: relative;
-  border-radius: 8px;
-  margin-bottom: 10px;
 }
 
 .accordion:hover {
@@ -114,25 +120,27 @@ onMounted(() => {
 }
 
 .accordion.active::after {
-  content: '-';
+  transform: translateY(-50%) rotate(45deg);
 }
 
 .panel {
   max-height: 0;
   overflow: hidden;
-  transition: all 0.3s ease-in-out;
+  transition: max-height 0.3s ease-out, padding 0.3s ease-out, opacity 0.3s ease-out;
   padding: 0 20px;
   text-align: left;
   font-size: 16px;
   line-height: 1.5;
   color: var(--text-color);
   opacity: 0;
+  background-color: var(--panel-bg);
 }
 
 .panel.open {
   max-height: 1000px;
-  padding: 10px 20px;
+  padding: 15px 20px;
   opacity: 1;
+  transition: max-height 0.5s ease-in, padding 0.3s ease-in, opacity 0.5s ease-in;
 }
 
 a {
@@ -149,6 +157,7 @@ a:hover {
   --text-color: #333333;
   --accordion-bg: #f0f0f0;
   --accordion-hover-bg: #e0e0e0;
+  --panel-bg: #ffffff;
   --link-color: #007bff;
 }
 
@@ -157,6 +166,7 @@ a:hover {
   --text-color: #f5f5f5;
   --accordion-bg: #3c3c3c;
   --accordion-hover-bg: #4c4c4c;
+  --panel-bg: #2c2c2c;
   --link-color: #66aaff;
 }
 </style>
