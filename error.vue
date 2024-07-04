@@ -20,19 +20,23 @@ const accordions = ref([
 ]);
 
 const toggleAccordion = (index) => {
-  accordions.value[index].isOpen = !accordions.value[index].isOpen;
+  accordions.value.forEach((item, i) => {
+    item.isOpen = i === index ? !item.isOpen : false;
+  });
 };
 
 onMounted(() => {
-  // The dark mode toggle is assumed to be handled by your existing layout
+  document.title = "链接失效 - Link Expired";
 });
 </script>
 
 <template>
   <NuxtLayout name="default">
     <div class="expired-link-container">
-      <h1 class="title">403 Error</h1>
-      <h2 class="subtitle">链接已过期，请联系客服索取新链接。</h2>
+      <div class="message">
+        <h1 class="title">链接已失效，请咨询客服获取新链接。</h1>
+        <h2 class="subtitle">Link expired, please contact us.</h2>
+      </div>
       <div class="faq">
         <div v-for="(item, index) in accordions" :key="index" class="accordion-item">
           <button 
@@ -56,23 +60,23 @@ onMounted(() => {
   max-width: 600px;
   margin: 0 auto;
   padding: 40px;
-  background-color: var(--bg-color);
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  text-align: center;
   transition: background-color 0.3s, color 0.3s;
 }
 
+.message {
+  margin-bottom: 40px;
+}
+
 .title {
-  font-size: 4rem;
-  font-weight: 700;
-  margin-bottom: 20px;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 10px;
   color: var(--text-color);
 }
 
 .subtitle {
-  font-size: 2rem;
+  font-size: 1.25rem;
   font-weight: 400;
-  margin-bottom: 40px;
   color: var(--text-color);
 }
 
@@ -81,7 +85,7 @@ onMounted(() => {
   border: none;
   outline: none;
   cursor: pointer;
-  padding: 20px;
+  padding: 15px 40px 15px 20px;
   width: 100%;
   text-align: left;
   font-size: 18px;
@@ -101,6 +105,8 @@ onMounted(() => {
   content: '+';
   position: absolute;
   right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
   font-size: 24px;
   font-weight: 700;
   color: var(--text-color);
@@ -109,24 +115,24 @@ onMounted(() => {
 
 .accordion.active::after {
   content: '-';
-  transform: rotate(180deg);
 }
 
 .panel {
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.3s ease;
+  transition: all 0.3s ease-in-out;
   padding: 0 20px;
   text-align: left;
   font-size: 16px;
   line-height: 1.5;
-  margin-top: 10px;
-  margin-bottom: 10px;
   color: var(--text-color);
+  opacity: 0;
 }
 
 .panel.open {
-  max-height: 200px;
+  max-height: 1000px;
+  padding: 10px 20px;
+  opacity: 1;
 }
 
 a {
