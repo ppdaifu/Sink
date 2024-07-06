@@ -52,12 +52,4 @@ export default defineNuxtConfig({
       slugDefaultLength: '6',
     },
   },
-  head: {
-    script: [
-      {
-        src: 'https://hm.baidu.com/hm.js?7af9cc781ae0b1d55a016f7ae0dde530',
-        async: true
-      }
-    ]
-  }
 })
