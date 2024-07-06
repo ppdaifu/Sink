@@ -2,6 +2,7 @@
 import { onMounted } from 'vue'
 
 const { title, description, image } = useAppConfig()
+
 useSeoMeta({
   title: title + ' - ' + description,
   description,
@@ -14,6 +15,7 @@ useSeoMeta({
   twitterImage: image,
   twitterCard: 'summary_large_image',
 })
+
 useHead({
   htmlAttrs: {
     lang: 'en',
@@ -25,17 +27,23 @@ useHead({
       href: '/icon-192.png',
     },
   ],
+  script: [
+    {
+      children: `
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?7af9cc781ae0b1d55a016f7ae0dde530";
+          var s = document.getElementsByTagName("script")[0]; 
+          s.parentNode.insertBefore(hm, s);
+        })();
+      `
+    }
+  ]
 })
 
 onMounted(() => {
-  // Baidu Analytics
-  const _hmt = (window as any)._hmt = (window as any)._hmt || [];
-  (function() {
-    const hm = document.createElement("script");
-    hm.src = "https://hm.baidu.com/hm.js?7af9cc781ae0b1d55a016f7ae0dde530";
-    const s = document.getElementsByTagName("script")[0]; 
-    s.parentNode?.insertBefore(hm, s);
-  })();
+  // 如果需要在组件挂载后执行额外的逻辑，可以在这里添加
 })
 </script>
 
