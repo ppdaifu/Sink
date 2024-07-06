@@ -27,23 +27,21 @@ useHead({
       href: '/icon-192.png',
     },
   ],
-  script: [
-    {
-      children: `
-        var _hmt = _hmt || [];
-        (function() {
-          var hm = document.createElement("script");
-          hm.src = "https://hm.baidu.com/hm.js?7af9cc781ae0b1d55a016f7ae0dde530";
-          var s = document.getElementsByTagName("script")[0]; 
-          s.parentNode.insertBefore(hm, s);
-        })();
-      `
-    }
-  ]
 })
 
 onMounted(() => {
-  // 如果需要在组件挂载后执行额外的逻辑，可以在这里添加
+  // bidu analytics
+  const script = document.createElement('script')
+  script.innerHTML = `
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?7af9cc781ae0b1d55a016f7ae0dde530";
+      var s = document.getElementsByTagName("script")[0]; 
+      s.parentNode.insertBefore(hm, s);
+    })();
+  `
+  document.head.appendChild(script)
 })
 </script>
 
