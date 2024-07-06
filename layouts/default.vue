@@ -24,7 +24,3 @@ export default {
   }
 };
 </script>
-
-<style scoped>
-/* 在这里添加你的样式 */
-</style>
