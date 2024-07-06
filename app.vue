@@ -30,18 +30,23 @@ useHead({
 })
 
 onMounted(() => {
-  // bidu analytics
-  const script = document.createElement('script')
-  script.innerHTML = `
-    var _hmt = _hmt || [];
+  const baiduAnalytics = () => {
+    window._hmt = window._hmt || [];
     (function() {
-      var hm = document.createElement("script");
+      const hm = document.createElement("script");
       hm.src = "https://hm.baidu.com/hm.js?7af9cc781ae0b1d55a016f7ae0dde530";
-      var s = document.getElementsByTagName("script")[0]; 
+      hm.async = true;
+      const s = document.getElementsByTagName("script")[0]; 
       s.parentNode.insertBefore(hm, s);
     })();
-  `
-  document.head.appendChild(script)
+  }
+  
+  window.addEventListener('load', baiduAnalytics);
+
+  // 可选：如果您想在组件卸载时移除事件监听器
+  onUnmounted(() => {
+    window.removeEventListener('load', baiduAnalytics);
+  })
 })
 </script>
 
