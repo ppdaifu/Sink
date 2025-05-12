@@ -1,62 +1,44 @@
 <script setup>
-import { ref, onMounted } from 'vue';
+import { ref } from 'vue';
 
-const accordions = ref([
-  {
-    question: "Q：链接有效期多久？",
-    answer: "30分钟。确定要下单时客服会发新的付款链接。",
-    isOpen: false
-  },
-  {
-    question: "Q：为什么链接会过期？",
-    answer: "短时间频繁收款可能触发平台风控，顾客付款时会提示风险，为避免这种情况，我们使用不同账户轮换收款，每次付款都会发全新链接。",
-    isOpen: false
-  },
-  {
-    question: "Q：联系不上了怎么办？",
-    answer: "防止失联，可<a href=\"https://kefu.ofdai.com\" target=\"_blank\" rel=\"noopener noreferrer\">点击这里联系备用客服</a>，或咨询邮箱 panpay#msn.com(replace # with @)",
-    isOpen: false
-  }
-]);
+const isQRVisible = ref(false);
 
-const toggleAccordion = (index) => {
-  accordions.value.forEach((item, i) => {
-    item.isOpen = i === index ? !item.isOpen : false;
-  });
+const showQRCode = () => {
+  isQRVisible.value = !isQRVisible.value;
 };
-
-onMounted(() => {
-  document.title = "链接失效 - Link Expired";
-});
 </script>
 
 <template>
   <NuxtLayout name="default">
-    <div class="expired-link-container">
+    <div class="urgent-contact-container">
       <div class="message">
-        <h1 class="title">链接已失效，请咨询客服获取新链接。</h1>
-        <h2 class="subtitle">Link expired, please contact us.</h2>
+        <h1 class="title">紧急联系客服说明 <span class="subtitle">Emergency Contact</span></h1>
       </div>
-      <div class="faq">
-        <div v-for="(item, index) in accordions" :key="index" class="accordion-item">
-          <button 
-            class="accordion" 
-            :class="{ 'active': item.isOpen }" 
-            @click="toggleAccordion(index)"
-          >
-            {{ item.question }}
-          </button>
-          <div class="panel" :class="{ 'open': item.isOpen }">
-            <p v-html="item.answer"></p>
-          </div>
+      <div class="instruction-list">
+        <div class="instruction-item">
+          <p>企业微信客服号于<strong>5月12日</strong>被临时限制，请添加下方新的客服微信号。</p>
+          <p class="en-text">Our WeCom accounts were limited on <strong>12 May</strong>. Please add the new CS below.</p>
         </div>
+        <div class="instruction-item">
+          <p>服务全球客户，每日在线12小时，人工接单需要时间，无法秒回消息。</p>
+          <p class="en-text">We're online 12 hours a day; replies may take time.</p>
+        </div>
+      </div>
+      <button class="btn" @click="showQRCode">
+        显示客服二维码
+        <span class="en-text">Show QR</span>
+      </button>
+      <div v-if="isQRVisible" class="qr-container">
+        <a href="https://kefu.ofdai.com/static/wecom-kf-qr-ppdaifu.webp" target="_blank" rel="noopener noreferrer">
+          <img class="qr-code" src="https://kefu.ofdai.com/static/wecom-kf-qr-ppdaifu.webp" alt="客服二维码">
+        </a>
       </div>
     </div>
   </NuxtLayout>
 </template>
 
 <style scoped>
-.expired-link-container {
+.urgent-contact-container {
   max-width: 600px;
   margin: 0 auto;
   padding: 40px;
@@ -79,68 +61,77 @@ onMounted(() => {
   font-size: 1.25rem;
   font-weight: 400;
   color: var(--text-color);
+  margin-left: 10px;
 }
 
-.accordion-item {
-  margin-bottom: 15px;
+.instruction-list {
+  margin-bottom: 30px;
+}
+
+.instruction-item {
+  margin-bottom: 20px;
+  padding: 15px;
   border-radius: 8px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
-}
-
-.accordion {
-  background-color: var(--accordion-bg);
-  border: none;
-  outline: none;
-  cursor: pointer;
-  padding: 15px 40px 15px 20px;
-  width: 100%;
-  text-align: left;
-  font-size: 18px;
-  font-weight: 600;
-  color: var(--text-color);
-  transition: background-color 0.3s ease;
-  position: relative;
-}
-
-.accordion:hover {
-  background-color: var(--accordion-hover-bg);
-}
-
-.accordion::after {
-  content: '+';
-  position: absolute;
-  right: 20px;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 24px;
-  font-weight: 700;
-  color: var(--text-color);
-  transition: transform 0.3s ease;
-}
-
-.accordion.active::after {
-  transform: translateY(-50%) rotate(45deg);
-}
-
-.panel {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.3s ease-out, padding 0.3s ease-out, opacity 0.3s ease-out;
-  padding: 0 20px;
+  background-color: var(--panel-bg);
   text-align: left;
   font-size: 16px;
   line-height: 1.5;
   color: var(--text-color);
-  opacity: 0;
-  background-color: var(--panel-bg);
 }
 
-.panel.open {
-  max-height: 1000px;
+.instruction-item p {
+  margin: 0 0 8px 0;
+}
+
+.en-text {
+  font-size: 14px;
+  color: var(--text-color);
+  opacity: 0.8;
+}
+
+.btn {
+  background-color: var(--accordion-bg);
+  border: none;
+  outline: none;
+  cursor: pointer;
   padding: 15px 20px;
-  opacity: 1;
-  transition: max-height 0.5s ease-in, padding 0.3s ease-in, opacity 0.5s ease-in;
+  width: 100%;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text-color);
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.btn:hover {
+  background-color: var(--accordion-hover-bg);
+}
+
+.btn .en-text {
+  font-size: 14px;
+  margin-left: 10px;
+  opacity: 0.8;
+}
+
+.qr-container {
+  margin-top: 20px;
+  text-align: center;
+  padding: 15px;
+  border-radius: 8px;
+  background-color: var(--panel-bg);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.qr-code {
+  max-width: 200px;
+  height: auto;
+  border-radius: 4px;
 }
 
 a {
