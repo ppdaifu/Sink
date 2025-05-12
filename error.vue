@@ -12,7 +12,8 @@ const showQRCode = () => {
   <NuxtLayout name="default">
     <div class="urgent-contact-container">
       <div class="message">
-        <h1 class="title">紧急联系客服说明 <span class="subtitle">Emergency Contact</span></h1>
+        <h1 class="title">紧急联系客服说明</h1>
+        <p class="subtitle">Emergency Contact</p>
       </div>
       <div class="instruction-list">
         <div class="instruction-item">
@@ -25,7 +26,7 @@ const showQRCode = () => {
         </div>
       </div>
       <button class="btn" @click="showQRCode">
-        显示客服二维码
+        <span>显示客服二维码</span>
         <span class="en-text">Show QR</span>
       </button>
       <div v-if="isQRVisible" class="qr-container">
@@ -39,12 +40,12 @@ const showQRCode = () => {
 
 <style scoped>
 .urgent-contact-container {
-  max-width: 600px;
-  margin: 0 auto;
-  padding: 40px;
+  max-width: 500px;
+  margin: 40px auto;
+  padding: 30px;
   background-color: var(--bg-color);
-  border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
   transition: background-color 0.3s, color 0.3s;
 }
 
@@ -54,16 +55,17 @@ const showQRCode = () => {
 }
 
 .title {
-  font-size: 1.5rem;
-  font-weight: 600;
+  font-size: 1.8rem;
+  font-weight: 700;
   color: var(--text-color);
+  margin: 0 0 10px 0;
 }
 
 .subtitle {
-  font-size: 1.25rem;
+  font-size: 1.2rem;
   font-weight: 400;
   color: var(--text-color-light);
-  margin-left: 10px;
+  margin: 0;
 }
 
 .instruction-list {
@@ -71,50 +73,51 @@ const showQRCode = () => {
 }
 
 .instruction-item {
-  margin-bottom: 20px;
-  padding: 15px;
+  margin-bottom: 15px;
+  padding: 12px 20px;
   background-color: var(--panel-bg);
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 6px;
   color: var(--text-color);
   font-size: 16px;
-  line-height: 1.5;
+  line-height: 1.6;
 }
 
 .instruction-item p {
-  margin: 0 0 8px 0;
+  margin: 0 0 6px 0;
 }
 
 .en-text {
   font-size: 14px;
   color: var(--text-color-light);
-  opacity: 0.7;
+  opacity: 0.8;
 }
 
 .btn {
+  display: block;
+  width: 100%;
+  padding: 12px;
   background-color: var(--button-bg);
   border: none;
-  outline: none;
-  cursor: pointer;
-  padding: 12px 20px;
-  width: 100%;
-  text-align: center;
-  font-size: 18px;
+  border-radius: 8px;
+  font-size: 1.1rem;
   font-weight: 600;
   color: var(--text-color);
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
   transition: background-color 0.3s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
 .btn:hover {
   background-color: var(--button-hover-bg);
 }
 
+.btn span {
+  display: block;
+}
+
 .btn .en-text {
-  font-size: 14px;
-  margin-left: 10px;
-  opacity: 0.7;
+  font-size: 0.9rem;
+  opacity: 0.8;
 }
 
 .qr-container {
@@ -123,30 +126,30 @@ const showQRCode = () => {
   padding: 15px;
   background-color: var(--panel-bg);
   border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .qr-code {
-  max-width: 200px;
+  max-width: 180px;
   height: auto;
-  border-radius: 4px;
+  display: block;
+  margin: 0 auto;
 }
 
 :root {
   --bg-color: #ffffff;
   --text-color: #333333;
   --text-color-light: #666666;
-  --panel-bg: #f9f9f9;
+  --panel-bg: #f5f5f5;
   --button-bg: #e0e0e0;
   --button-hover-bg: #d0d0d0;
 }
 
 :root.dark-mode {
   --bg-color: #2c2c2c;
-  --text-color: #f5f5f5;
+  --text-color: #ffffff;
   --text-color-light: #cccccc;
-  --panel-bg: #3c3c3c;
-  --button-bg: #4c4c4c;
-  --button-hover-bg: #5c5c5c;
+  --panel-bg: #3a3a3a;
+  --button-bg: #4a4a4a;
+  --button-hover-bg: #5a5a5a;
 }
 </style>
