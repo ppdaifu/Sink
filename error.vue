@@ -42,25 +42,27 @@ const showQRCode = () => {
   max-width: 600px;
   margin: 0 auto;
   padding: 40px;
+  background-color: var(--bg-color);
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   transition: background-color 0.3s, color 0.3s;
 }
 
 .message {
-  margin-bottom: 40px;
+  margin-bottom: 30px;
   text-align: center;
 }
 
 .title {
   font-size: 1.5rem;
   font-weight: 600;
-  margin-bottom: 10px;
   color: var(--text-color);
 }
 
 .subtitle {
   font-size: 1.25rem;
   font-weight: 400;
-  color: var(--text-color);
+  color: var(--text-color-light);
   margin-left: 10px;
 }
 
@@ -71,13 +73,12 @@ const showQRCode = () => {
 .instruction-item {
   margin-bottom: 20px;
   padding: 15px;
-  border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   background-color: var(--panel-bg);
-  text-align: left;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  color: var(--text-color);
   font-size: 16px;
   line-height: 1.5;
-  color: var(--text-color);
 }
 
 .instruction-item p {
@@ -86,46 +87,43 @@ const showQRCode = () => {
 
 .en-text {
   font-size: 14px;
-  color: var(--text-color);
-  opacity: 0.8;
+  color: var(--text-color-light);
+  opacity: 0.7;
 }
 
 .btn {
-  background-color: var(--accordion-bg);
+  background-color: var(--button-bg);
   border: none;
   outline: none;
   cursor: pointer;
-  padding: 15px 20px;
+  padding: 12px 20px;
   width: 100%;
   text-align: center;
   font-size: 18px;
   font-weight: 600;
   color: var(--text-color);
   border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   transition: background-color 0.3s ease;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .btn:hover {
-  background-color: var(--accordion-hover-bg);
+  background-color: var(--button-hover-bg);
 }
 
 .btn .en-text {
   font-size: 14px;
   margin-left: 10px;
-  opacity: 0.8;
+  opacity: 0.7;
 }
 
 .qr-container {
   margin-top: 20px;
   text-align: center;
   padding: 15px;
-  border-radius: 8px;
   background-color: var(--panel-bg);
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .qr-code {
@@ -134,30 +132,21 @@ const showQRCode = () => {
   border-radius: 4px;
 }
 
-a {
-  color: var(--link-color);
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
-}
-
 :root {
   --bg-color: #ffffff;
   --text-color: #333333;
-  --accordion-bg: #f0f0f0;
-  --accordion-hover-bg: #e0e0e0;
-  --panel-bg: #ffffff;
-  --link-color: #007bff;
+  --text-color-light: #666666;
+  --panel-bg: #f9f9f9;
+  --button-bg: #e0e0e0;
+  --button-hover-bg: #d0d0d0;
 }
 
 :root.dark-mode {
   --bg-color: #2c2c2c;
   --text-color: #f5f5f5;
-  --accordion-bg: #3c3c3c;
-  --accordion-hover-bg: #4c4c4c;
-  --panel-bg: #2c2c2c;
-  --link-color: #66aaff;
+  --text-color-light: #cccccc;
+  --panel-bg: #3c3c3c;
+  --button-bg: #4c4c4c;
+  --button-hover-bg: #5c5c5c;
 }
 </style>
